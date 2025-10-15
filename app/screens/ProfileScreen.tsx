@@ -4,8 +4,8 @@ import { View, Text, StyleSheet } from "react-native";
 export default function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>👤 Name: John Doe</Text>
-      <Text style={styles.username}>Username: @johndoe</Text>
+      <Text style={styles.name}>👤 Name: Amine Mohammed</Text>
+      <Text style={styles.username}>Username: @aminemohammed</Text>
     </View>
   );
 }
