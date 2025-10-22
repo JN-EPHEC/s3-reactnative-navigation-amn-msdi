@@ -2,43 +2,49 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 
-const CART_ITEMS = [
+const PRODUCTS = [
   {
     id: "1",
     name: "Casque Bluetooth",
+    description: "Casque sans fil avec réduction de bruit.",
     price: "59,99€",
-    quantity: 1,
     image: require("../../assets/images/react-logo.png"),
   },
   {
     id: "2",
-    name: "Clavier Mécanique",
-    price: "89,99€",
-    quantity: 2,
+    name: "Souris Ergonomique",
+    description: "Souris confortable pour le travail quotidien.",
+    price: "29,99€",
     image: require("../../assets/images/partial-react-logo.png"),
+  },
+  {
+    id: "3",
+    name: "Clavier Mécanique",
+    description: "Clavier RGB pour développeurs.",
+    price: "89,99€",
+  image: require("../../assets/images/react-logo.png"),
   },
 ];
 
-export default function CartScreen() {
+export default function ShopScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🛒 Mon Panier</Text>
+      <Text style={styles.title}>🛍️ Boutique</Text>
       <FlatList
-        data={CART_ITEMS}
+        data={PRODUCTS}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <View style={styles.cartCard}>
-            <Image source={item.image} style={styles.cartImage} />
-            <View style={styles.cartInfo}>
-              <Text style={styles.cartName}>{item.name}</Text>
-              <Text style={styles.cartPrice}>{item.price}</Text>
-              <Text style={styles.cartQty}>Quantité : {item.quantity}</Text>
+          <View style={styles.productCard}>
+            <Image source={item.image} style={styles.productImage} />
+            <View style={styles.productInfo}>
+              <Text style={styles.productName}>{item.name}</Text>
+              <Text style={styles.productDesc}>{item.description}</Text>
+              <Text style={styles.productPrice}>{item.price}</Text>
             </View>
           </View>
         )}
         contentContainerStyle={styles.list}
       />
-      <Text style={styles.total}>Total : 238,97€</Text>
     </View>
   );
 }
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 24,
   },
-  cartCard: {
+  productCard: {
     flexDirection: "row",
     backgroundColor: "#fff",
     borderRadius: 12,
@@ -72,36 +78,29 @@ const styles = StyleSheet.create({
     elevation: 2,
     alignItems: "center",
   },
-  cartImage: {
+  productImage: {
     width: 60,
     height: 60,
     borderRadius: 8,
     marginRight: 16,
   },
-  cartInfo: {
+  productInfo: {
     flex: 1,
   },
-  cartName: {
+  productName: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#1976d2",
     marginBottom: 4,
   },
-  cartPrice: {
+  productDesc: {
+    fontSize: 15,
+    color: "#333",
+    marginBottom: 4,
+  },
+  productPrice: {
     fontSize: 16,
     color: "#388e3c",
     fontWeight: "bold",
-    marginBottom: 4,
-  },
-  cartQty: {
-    fontSize: 15,
-    color: "#333",
-  },
-  total: {
-    fontSize: 20,
-    color: "#1976d2",
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 16,
   },
 });

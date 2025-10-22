@@ -63,7 +63,11 @@ function CoursesTabsNavigator() {
 
 export default function RootLayout() {
   return (
-    <Drawer.Navigator initialRouteName="Coursess">
+    <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Screen name="Home" component={require('./screens/HomeScreen').default} options={{ headerTitle: 'Home' }} />
+      <Drawer.Screen name="Shop" component={require('./screens/ShopScreen').default} options={{ headerTitle: 'Shop' }} />
+      <Drawer.Screen name="Cart" component={require('./screens/CartScreen').default} options={{ headerTitle: 'Cart' }} />
+      <Drawer.Screen name="Settings" component={require('./screens/SettingsScreen').default} options={{ headerTitle: 'Settings' }} />
       <Drawer.Screen name="Courses" component={CoursesTabsNavigator} options={{ headerShown: false }} />
       <Drawer.Screen name="My Profile" component={ProfileScreen} options={{ headerTitle: 'Profile' }} />
     </Drawer.Navigator>
